@@ -1,0 +1,26 @@
+//Ejemplo 4 json objetos, varios objetos 
+{
+	"Persona1" : {
+		"Nombre" : "Axel",
+		"Apellido" : "Unzon",
+		"Estatura" : 1.40,
+		"Edad" : 76
+	}
+	
+
+	"Persona2" : {
+		"Nombre" : "Diana",
+		"Apellido" : "Campos",
+		"Estatura" : 1.6,
+		"Edad" : 15
+	},
+	
+	"Persona3" : {
+		"Nombre" : null,
+		"Apellido" : null,
+		"Estatura" : null,
+		"Edad" : null,
+		"isSoltero" : false,
+		"isPeloNegro" : true
+	}
+}

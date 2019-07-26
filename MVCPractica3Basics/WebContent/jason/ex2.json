@@ -1,0 +1,9 @@
+//Ejemplo 3 json objetos, 1 objeto con su nombre
+{
+	"Persona1" : {
+		"Nombre" : "Axel",
+		"Apellido" : "Unzon",
+		"Estatura" : 1.40,
+		"Edad" : 76
+	}
+}

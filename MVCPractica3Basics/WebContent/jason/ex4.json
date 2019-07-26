@@ -1,0 +1,22 @@
+
+{
+	"Persona 1" : {
+		"nombre" : "Oscar",
+		"apellido" : "Santana",
+		"apodos" : 
+		[
+		"Zeus", 
+		"Hercuoles", 
+		"Machi", 
+		"leon"
+		],
+		"Alumnos" : 
+		{
+			"alumno1" : 
+			{
+				"nombre" : "Jebus",
+				"pagina web" : "htttp:jebus.com"
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+//Ejemplo 1 ejemplo vacio
+[]
+
+//Ejemplo 2 json de arrays y arrays
+[
+[],[],[],[]
+]
+//Ejemplo 3 json de arrays de cadenas
+[
+"Dani","Fanny", "Janni","Meli", "Romi"
+]
+//Ejemplo 4 json de numeros
+[
+1,2,3,4,5
+] 
+//Ejemplo 5 json de arrays
+[
+[10,2,3,4],
+["p","o","w"],
+[1,2,3,4]
+]
+
