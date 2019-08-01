@@ -37,18 +37,6 @@ public class CreateServlet extends HttpServlet {
 		objProducto.setPrecioProducto(precioProducto);
 		objProducto.setExistencias(existencias);
 
-		//response.setContentType("application/json");
-
-		/*
-		 * PrintWriter salida = response.getWriter();
-		 * 
-		 * salida.append("{" + "\"idProducto\":\"" + objProducto.getIdProducto() + "\","
-		 * + "\"Nombre Producto\":" + objProducto.getNombreProducto() + "\"," +
-		 * "\"Precio Producto\":" + objProducto.getPrecioProducto() + "\"," +
-		 * "\"Existencias\":" + objProducto.getExistencias() + "\"," + "}");
-		 * 
-		 * salida.close();
-		 */
 
 		// pasos para conectar con la base de datos
 		// Paso 1 - Declarar las variables de acceso

@@ -81,6 +81,15 @@ public class ReadGeneralServlet extends HttpServlet {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				// Paso 7 - Cerrar las conexiones.
+				stmnt.close();
+				conn.close();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 

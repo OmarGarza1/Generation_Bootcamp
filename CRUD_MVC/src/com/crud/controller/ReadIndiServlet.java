@@ -13,14 +13,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.crud.model.Producto;
+
 /**
  * Servlet implementation class CreateIndiServlet
  */
 @WebServlet("/ReadIndiServlet")
 public class ReadIndiServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -33,19 +33,23 @@ public class ReadIndiServlet extends HttpServlet {
 		Connection conn = null;
 		Statement stmnt = null;
 		ResultSet rs = null;
-		
+
 		String idProducto = request.getParameter("txtID");
-		
-		String sentenciaSQL = "Select * from productos where idproducto = " + idProducto + ";";
+
+		Producto objProducto = new Producto();
+
+		objProducto.setIdProducto(idProducto);
+
+		String sentenciaSQL = "Select * from productos where idproducto = " + objProducto.getIdProducto() + ";";
 		PrintWriter salida = response.getWriter();
 		try {
 			Class.forName("com.mysql.jdbc.Driver").getDeclaredConstructor().newInstance();
 			conn = DriverManager.getConnection(urlServidor, user, pass);
 			stmnt = conn.createStatement();
 			rs = stmnt.executeQuery(sentenciaSQL);
-			
+
 			while (rs.next()) {
-				
+
 				salida.append("<table>");
 				salida.append("<th>");
 				salida.append("<td>");
@@ -61,7 +65,7 @@ public class ReadIndiServlet extends HttpServlet {
 				salida.append("existencias");
 				salida.append("<br>");
 				salida.append("</th>");
-				
+
 				salida.append("<tr>");
 				salida.append("<td>");
 				salida.append("</td>");
@@ -72,17 +76,25 @@ public class ReadIndiServlet extends HttpServlet {
 				salida.append(rs.getString(2));
 				salida.append("</td>");
 				salida.append("<td>");
-				salida.append(""+rs.getDouble(3));
+				salida.append("" + rs.getDouble(3));
 				salida.append("</td>");
 				salida.append("<td>");
 				salida.append(rs.getString(4));
 				salida.append("</td>");
-				
-				
+
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				// Paso 7 - Cerrar las conexiones.
+				stmnt.close();
+				conn.close();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 

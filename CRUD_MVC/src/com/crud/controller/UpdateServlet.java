@@ -25,12 +25,15 @@ public class UpdateServlet extends HttpServlet {
 
 		String idProducto = request.getParameter("txtID");
 		String nombreProducto = request.getParameter("txtName");
-
+		double precioProducto = Double.parseDouble(request.getParameter("txtPrice"));
+		int existencias = Integer.parseInt(request.getParameter("txtExist"));
 
 		Producto objProducto = new Producto();
 
 		objProducto.setIdProducto(idProducto);
 		objProducto.setNombreProducto(nombreProducto);
+		objProducto.setPrecioProducto(precioProducto);
+		objProducto.setExistencias(existencias);
 
 		// pasos para conectar con la base de datos
 		// Paso 1 - Declarar las variables de acceso
@@ -53,8 +56,10 @@ public class UpdateServlet extends HttpServlet {
 			stmnt = conn.createStatement();
 
 			// Paso 5 - Preparar el comando SQL a ejecutar
-			sentenciaSQL = "UPDATE productos SET nombreProducto = '" + nombreProducto + "' WHERE idProducto = '" + idProducto + "';";
-				
+			sentenciaSQL = "UPDATE productos SET nombreProducto = '" + objProducto.getNombreProducto() 
+					+ "', precioProducto = " + objProducto.getPrecioProducto()
+					+ ",  existencias = " + objProducto.getExistencias() 
+					+ " WHERE idProducto = '" + objProducto.getIdProducto()  + "';";
 
 			// Paso 6 - ejecutar el comando SQL en la BD
 			nRegistros = stmnt.executeUpdate(sentenciaSQL);

@@ -49,7 +49,7 @@ public class DeleteServlet extends HttpServlet {
 			stmnt = conn.createStatement();
 
 			// Paso 5 - Preparar el comando SQL a ejecutar
-			sentenciaSQL = "Delete from productos where idproducto = '" + idProducto + "';";
+			sentenciaSQL = "Delete from productos where idproducto = '" + objProducto.getIdProducto() + "';";
 
 			// Paso 6 - ejecutar el comando SQL en la BD
 			nRegistros = stmnt.executeUpdate(sentenciaSQL);

@@ -16,14 +16,21 @@
 		<div class="row">
 			<form action="UpdateServlet" method="Post">
 				<p>
-					<label for="txtIDText">Introduce ID</label> 
-					<br>
-					<input type="text" id="txtIDText" name="txtID">
+				<p>
+					<label for="txtID">Introduce ID</label> 
+					<input type="text" id="txtID" name="txtID">
 				</p>
 				<p>
-					<label for="txtIDText">Introduce Nombre</label> 
-					<br>
-					<input type="text" id="txtText" name="txtName">
+					<label for="txtName">Introduce Nombre</label> 
+					<input type="text" id="txtName" name="txtName">
+				</p>
+				<p>
+					<label for="txtPrice">Precio Producto</label> 
+					<input type="text" id="txtPrice" name="txtPrice">
+				</p>
+					<p>
+					<label for="txtExist">Introduce Existencias</label> 
+					<input type="text" id="txtExist" name="txtExist">
 				</p>
 				<p>
 					<input type="submit" value="Actualizar">
