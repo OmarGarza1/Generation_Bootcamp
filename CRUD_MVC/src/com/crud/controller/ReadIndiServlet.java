@@ -13,14 +13,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mysql.cj.protocol.Resultset;
-
 /**
- * Servlet implementation class ReadGeneralServlet
+ * Servlet implementation class CreateIndiServlet
  */
-@WebServlet("/ReadGeneralServlet")
-public class ReadGeneralServlet extends HttpServlet {
+@WebServlet("/ReadIndiServlet")
+public class ReadIndiServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -33,7 +33,10 @@ public class ReadGeneralServlet extends HttpServlet {
 		Connection conn = null;
 		Statement stmnt = null;
 		ResultSet rs = null;
-		String sentenciaSQL = "Select * from productos";
+		
+		String idProducto = request.getParameter("txtID");
+		
+		String sentenciaSQL = "Select * from productos where idproducto = " + idProducto + ";";
 		PrintWriter salida = response.getWriter();
 		try {
 			Class.forName("com.mysql.jdbc.Driver").getDeclaredConstructor().newInstance();
@@ -42,7 +45,6 @@ public class ReadGeneralServlet extends HttpServlet {
 			rs = stmnt.executeQuery(sentenciaSQL);
 			
 			while (rs.next()) {
-				
 				
 				salida.append("<table>");
 				salida.append("<th>");
@@ -60,7 +62,6 @@ public class ReadGeneralServlet extends HttpServlet {
 				salida.append("<br>");
 				salida.append("</th>");
 				
-
 				salida.append("<tr>");
 				salida.append("<td>");
 				salida.append("</td>");
@@ -76,6 +77,7 @@ public class ReadGeneralServlet extends HttpServlet {
 				salida.append("<td>");
 				salida.append(rs.getString(4));
 				salida.append("</td>");
+				
 				
 			}
 			

@@ -14,19 +14,23 @@ import javax.servlet.http.HttpServletResponse;
 import com.crud.model.Producto;
 
 /**
- * Servlet implementation class DeleteServlet
+ * Servlet implementation class UpdateServlet
  */
-@WebServlet("/DeleteServlet")
-public class DeleteServlet extends HttpServlet {
+@WebServlet("/UpdateServlet")
+public class UpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		String idProducto = request.getParameter("txtID");
+		String nombreProducto = request.getParameter("txtName");
+
 
 		Producto objProducto = new Producto();
 
 		objProducto.setIdProducto(idProducto);
+		objProducto.setNombreProducto(nombreProducto);
 
 		// pasos para conectar con la base de datos
 		// Paso 1 - Declarar las variables de acceso
@@ -49,13 +53,14 @@ public class DeleteServlet extends HttpServlet {
 			stmnt = conn.createStatement();
 
 			// Paso 5 - Preparar el comando SQL a ejecutar
-			sentenciaSQL = "Delete from productos where idproducto = '" + idProducto + "';";
+			sentenciaSQL = "UPDATE productos SET nombreProducto = '" + nombreProducto + "' WHERE idProducto = '" + idProducto + "';";
+				
 
 			// Paso 6 - ejecutar el comando SQL en la BD
 			nRegistros = stmnt.executeUpdate(sentenciaSQL);
 
 			if (nRegistros > 0) {
-				response.getWriter().print("Registro borrado");
+				response.getWriter().print("Si se modifico el registro");
 			}
 
 		} catch (Exception e) {
@@ -66,7 +71,7 @@ public class DeleteServlet extends HttpServlet {
 				stmnt.close();
 				conn.close();
 			} catch (Exception e) {
-				
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

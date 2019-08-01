@@ -12,15 +12,20 @@
 		<div class="row">
 			<h2>Informacion individual</h2>
 		</div>
-		<form action="" method="post">
-			<p>
-				<label for="txtID">Introduce ID</label>
-				 <input type="text" id="txtID" name="txtID">
-			</p>
-			<p>
-				<input type="submit" value="Guardar">
-			</p>
-		</form>
+		<div class="row">
+			<form action="ReadIndiServlet" method="get">
+				<p>
+					<label for="txtID">Introduce ID</label> <input type="text"
+						id="txtID" name="txtID">
+				</p>
+				<p>
+					<input type="submit" value="Buscar">
+				</p>
+			</form>
+		</div>
 	</div>
+	<script type="scripts/jquery-3.4.1.min-js"></script>
+	<script type="scripts/popper.min.js"></script>
+	<script type="scripts/bootstrap.bundle.min.js"></script>
 </body>
 </html>

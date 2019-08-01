@@ -14,7 +14,7 @@
 			<h2>Eliminar Producto</h2>
 		</div>
 		<div class="row">
-			<form action="DeleteProduct" method="Post">
+			<form action="DeleteServlet" method="Post">
 				<p>
 					<label for="txtIDText">Introduce ID</label> 
 					<br>

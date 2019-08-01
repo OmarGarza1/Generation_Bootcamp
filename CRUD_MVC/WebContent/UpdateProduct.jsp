@@ -14,7 +14,7 @@
 			<h2>Actualizar Producto</h2>
 		</div>
 		<div class="row">
-			<form action="UpdateProduct" method="Post">
+			<form action="UpdateServlet" method="Post">
 				<p>
 					<label for="txtIDText">Introduce ID</label> 
 					<br>
