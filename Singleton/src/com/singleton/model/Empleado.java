@@ -1,6 +1,10 @@
 package com.singleton.model;
 
+import java.io.FileNotFoundException;
+
 public class Empleado {
+
+	private String nombre;
 
 	private static Empleado instanciaEmpleado = null;
 
@@ -8,11 +12,21 @@ public class Empleado {
 
 	}
 
-	public static Empleado getInstancia() {
+	public static Empleado getInstance() {
 		if (instanciaEmpleado == null) {
-			instanciaEmpleado = new Empleado();
+			return instanciaEmpleado = new Empleado();
 
+		} else {
+			return instanciaEmpleado;
 		}
-		return instanciaEmpleado;
+
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String Nombre) {
+		this.nombre = Nombre;
 	}
 }
