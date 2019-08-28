@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:prime="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+	Practica de JSF
+	<h:outputText value="Hola mundo"></h:outputText>
+
+	<h2>Practica JSF</h2>
+	<h:button value="Presiona" onclick="alert('Testo');"></h:button>
+
+	<h2>Mensaje</h2>
+
+	<h:form>
+		<h:outputLabel for="txtMensaje">Introduce un mensaje</h:outputLabel>
+		<h:inputText id="txtMensaje" value="#{mensaji.mensaje}"></h:inputText>
+		<p>
+			<h:commandButton value="Enviar"></h:commandButton>
+		</p>
+		
+		<h:outputText value="#{mensaji.mensaje}"></h:outputText>
+		
+	</h:form>
+</body>
+</html>
