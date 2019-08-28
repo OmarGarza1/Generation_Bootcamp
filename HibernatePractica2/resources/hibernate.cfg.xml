@@ -12,7 +12,7 @@
 
 		<!-- Especifica la clas tipo entity que tiene anotaciones -->
 		<mapping class="com.practica.model.Clientes"></mapping>
-		<mapping class="com.practica.model.Telefono"></mapping>
+		<mapping class="com.practica.model.Telefonos"></mapping>
 	</session-factory>
 
 </hibernate-configuration>

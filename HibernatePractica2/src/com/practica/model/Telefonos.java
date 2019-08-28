@@ -55,7 +55,5 @@ public class Telefonos {
 	public String toString() {
 		return "Telefonos [idTelefono=" + idTelefono + ", telefono=" + telefono + ", horario=" + horario + "]";
 	}
-	
-	
 
 }

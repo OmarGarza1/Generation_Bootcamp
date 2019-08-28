@@ -1,42 +1,46 @@
 package com.practica.model;
 
-import java.util.ArrayList;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-
+@Entity
+@Table(name = "clientes")
 public class Clientes {
-
 	@Id
-	private String idCliente;
+	@Column
+	private String idclientes;
 	@Column
 	private String nombreCliente;
 	@Column
-	private String domicilio;
-	@Id
-	private ArrayList<Telefonos> listaTelefono;
+	private String domicilioCliente;
+	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JoinColumn(name = "idTelefono")
+	private Set<Telefonos> listaTelefonos;
 
 	public Clientes() {
-
 	}
 
-	public Clientes(String idCliente, String nombreCliente, String domicilio, ArrayList<Telefonos> listaTelefono) {
-		this.idCliente = idCliente;
+	public Clientes(String idCliente, String nombreCliente, String domicilioCliente, Set<Telefonos> listaTelefonos) {
+		super();
+		this.idclientes = idCliente;
 		this.nombreCliente = nombreCliente;
-		this.domicilio = domicilio;
-		this.listaTelefono = listaTelefono;
+		this.domicilioCliente = domicilioCliente;
+		this.listaTelefonos = listaTelefonos;
 	}
 
 	public String getIdCliente() {
-		return idCliente;
+		return idclientes;
 	}
 
-	public void setIdCliente(String idCliente) {
-		this.idCliente = idCliente;
+	public void setIdCliente(String idclientes) {
+		this.idclientes = idclientes;
 	}
 
 	public String getNombreCliente() {
@@ -47,28 +51,26 @@ public class Clientes {
 		this.nombreCliente = nombreCliente;
 	}
 
-	public String getDomicilio() {
-		return domicilio;
+	public String getDomicilioCliente() {
+		return domicilioCliente;
 	}
 
-	public void setDomicilio(String domicilio) {
-		this.domicilio = domicilio;
+	public void setDomicilioCliente(String domicilioCliente) {
+		this.domicilioCliente = domicilioCliente;
+	}
+
+	public Set<Telefonos> getListaTelefonos() {
+		return listaTelefonos;
+	}
+
+	public void setListaTelefonos(Set<Telefonos> listaTelefonos) {
+		this.listaTelefonos = listaTelefonos;
 	}
 
 	@Override
 	public String toString() {
-		return "Clientes [idCliente=" + idCliente + ", nombreCliente=" + nombreCliente + ", domicilio=" + domicilio
-				+ ", idTelefono=" + listaTelefono + "]";
-	}
-
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	@JoinColumn(name = "idTelefono")
-	public ArrayList<Telefonos> getListaTelefono() {
-		return listaTelefono;
-	}
-
-	public void setListaTelefono(ArrayList<Telefonos> listaTelefono) {
-		this.listaTelefono = listaTelefono;
+		return "Clientes [idclientes=" + idclientes + ", nombreCliente=" + nombreCliente + ", domicilioCliente="
+				+ domicilioCliente + ", listaTelefonos=" + listaTelefonos + "]";
 	}
 
 }
